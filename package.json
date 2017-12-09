@@ -1,0 +1,30 @@
+{
+  "name": "draughts",
+  "version": "1.0.0",
+  "description": "Online Draughts",
+  "main": "index.js",
+  "scripts": {
+    "lint": "node node_modules/.bin/standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaxscape/draughts.git"
+  },
+  "author": "Ben Surgison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajaxscape/draughts/issues"
+  },
+  "homepage": "https://github.com/ajaxscape/draughts#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-http-proxy": "^1.1.0",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "standard": "^10.0.3",
+    "webpack": "^3.10.0"
+  }
+}
