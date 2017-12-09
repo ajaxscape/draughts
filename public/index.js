@@ -1,15 +1,44 @@
+let game
+
 class Game {
   constructor (player1, player2) {
     this.player1 = player1
     this.player2 = player2
     this.refresh()
+    let $piece
+    let $target
+    $('#board').on('dragstart', 'td', function (event) {
+      $piece = $(event.target)
+    })
+    $('#board').on('dragover', 'td', function (event) {
+      $target = $(event.target)
+    })
+    $('#board').on('dragend', 'td', function (event) {
+      const pos = 'abcdefgh'
+      const startRow = $piece.parent().parent()[0].rowIndex + 1
+      const startCol = pos[$piece.parent()[0].cellIndex]
+      const endRow = $target.parent()[0].rowIndex + 1
+      const endCol = pos[$target[0].cellIndex]
+      $piece.remove()
+      $target.append($piece)
+      $.ajax({
+        url: `http://localhost:3000/api/move/${startCol}${startRow}/${endCol}${endRow}`,
+        success: (response) => {
+          game.state = response.state
+          game.renderBoard()
+        },
+        error: () => {
+          game.renderBoard()
+        }
+      })
+    })
   }
 
   refresh () {
     $.getJSON('http://localhost:3000/api', (response) => {
       this.state = response.state
       this.renderBoard()
-      setTimeout(() => this.refresh(), 3000)
+      // setTimeout(() => this.refresh(), 3000)
     })
   }
 
@@ -53,4 +82,4 @@ class Piece {
   }
 }
 
-const game = new Game()
+game = new Game()

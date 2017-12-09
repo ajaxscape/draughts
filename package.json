@@ -10,6 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/ajaxscape/draughts.git"
   },
+  "standard": {
+    "env": "mocha",
+    "globals": [
+      "$"
+    ]
+  },
   "author": "Ben Surgison",
   "license": "ISC",
   "bugs": {
