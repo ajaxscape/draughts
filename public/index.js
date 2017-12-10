@@ -67,7 +67,11 @@ class Game {
   drawCell (player) {
     let board = '<td>'
     if (player !== '#' && player !== ' ') {
-      board += '<div class="piece player' + player + '" draggable="true"></div>'
+      board += '<div class="piece player' + player + '" draggable="true">'
+      if (player === 'W' || player === 'B') {
+        board += '<p>K</p>'
+      }
+      board += '</div>'
     }
     board += '</td>'
     return board

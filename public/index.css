@@ -43,3 +43,13 @@ tr:nth-child(even) td:nth-child(odd) {
     background-image: url("blackgrain.jpg");
     background-position: 800px;
 }
+
+.piece p {
+    border-radius: 16px;
+    line-height: 0;
+    text-align: center;
+}
+
+.piece.playerb p {
+    color: white;
+}
